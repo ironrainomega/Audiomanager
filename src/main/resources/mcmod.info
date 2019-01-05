@@ -1,0 +1,16 @@
+[
+{
+  "modid": "audiomanager",
+  "name": "Audio Manager",
+  "description": "Allows you to select what default audio device to use.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["TamasHenning"],
+  "credits": "The Forge and FML guys",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
