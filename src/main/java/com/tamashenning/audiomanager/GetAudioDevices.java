@@ -28,13 +28,24 @@ public class GetAudioDevices {
             }
         }
 
-        String[] devices = ALC10.alcGetString(null, ALC11.ALC_ALL_DEVICES_SPECIFIER).split("\0");
-        for (String device : devices) {
-            if (AudioManager.logger != null)
-                AudioManager.logger.info(device);
+        String[] devices = null;
+
+        try {
+            devices = ALC10.alcGetString(null, ALC11.ALC_ALL_DEVICES_SPECIFIER).split("\0");
+            for (String device : devices) {
+                if (AudioManager.logger != null)
+                    AudioManager.logger.info(device);
+            }
+
         }
-        if (locallyCreated)
-            AL.destroy();
+        catch (Exception e) {
+            if (AudioManager.logger != null)
+                AudioManager.logger.error(e);
+        }
+        finally {
+            if (locallyCreated)
+                AL.destroy();
+        }
 
         return devices;
     }

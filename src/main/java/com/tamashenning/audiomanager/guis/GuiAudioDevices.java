@@ -73,7 +73,12 @@ public class GuiAudioDevices extends GuiScreen
         }
         else if (this.button != null)
         {
-            GetAudioDevices.SelectAudioDevice(this.device);
+            if (this.device.equals("Default")) {
+                GetAudioDevices.SelectAudioDevice("");
+            }
+            else {
+                GetAudioDevices.SelectAudioDevice(this.device);
+            }
 
             this.button.displayString = TextFormatting.YELLOW + this.device;
             this.updateScreen();

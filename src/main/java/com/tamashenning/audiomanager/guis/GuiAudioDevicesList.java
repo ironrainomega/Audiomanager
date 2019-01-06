@@ -29,6 +29,12 @@ public class GuiAudioDevicesList extends GuiListExtended {
         this.mc = mcIn;
 
         String[] devices = GetAudioDevices.GetAudioDevices();
+
+        if (devices == null) {
+            devices = new String[1];
+            devices[0] = "Default";
+        }
+
         this.listEntries = new GuiListExtended.IGuiListEntry[devices.length];
 
         int i = 0;
